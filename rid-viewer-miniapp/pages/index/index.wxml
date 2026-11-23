@@ -1,0 +1,45 @@
+<view class="page">
+  <view class="header">
+    <view class="titles">
+      <text class="title">天眼 RID</text>
+      <view class="status-row">
+        <text class="live-dot" style="color:{{mode === 'live' ? '#22C55E' : (mode === 'demo' ? '#F59E0B' : '#7A8CA3')}}">●</text>
+        <text class="status">{{statusText}}</text>
+      </view>
+    </view>
+    <view class="pill" bindtap="connect">{{mode === 'live' || mode === 'connecting' ? '断开' : '连接'}}</view>
+  </view>
+
+  <view class="room-row">
+    <input class="room" value="{{room}}" bindinput="onRoom" placeholder="房间号（与 Android 端一致）" placeholder-class="ph" />
+    <view class="pill ghost" bindtap="startDemo">演示</view>
+  </view>
+
+  <view class="radar-wrap card">
+    <canvas type="2d" id="radar" class="radar"></canvas>
+    <text class="hint">北向朝上 · 自动量程</text>
+  </view>
+
+  <scroll-view scroll-y class="list" enhanced show-scrollbar="{{false}}">
+    <view wx:for="{{drones}}" wx:key="key" class="row card" bindtap="openDetail" data-key="{{item.key}}">
+      <text class="dot" style="color:{{item.dotColor}}">●</text>
+      <view class="info">
+        <text class="id">{{item.idText}}</text>
+        <text class="sub">{{item.sub}}</text>
+      </view>
+      <view class="right">
+        <text class="dist">{{item.distText}}</text>
+        <text class="meta">{{item.metaText}}</text>
+      </view>
+    </view>
+
+    <view wx:if="{{!drones.length}}" class="empty">
+      <text class="empty-title">附近暂无数据</text>
+      <text class="empty-sub">{{mode === 'live' ? '保持 Android 端“分享”开启' : '点击“连接”，接收 Android 端推送'}}</text>
+    </view>
+
+    <view class="footer">
+      受微信接口限制，小程序无法直接接收 Remote ID 广播；实时数据由 Android 接收端解码后经 MQTT 推送。
+    </view>
+  </scroll-view>
+</view>

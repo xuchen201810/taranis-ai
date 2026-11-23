@@ -1,0 +1,9 @@
+{
+  "desc": "天眼 RID 查看端",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}

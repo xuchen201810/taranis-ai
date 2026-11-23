@@ -1,0 +1,19 @@
+<view class="page">
+  <view class="hero card">
+    <text class="dot" style="color:{{dotColor}}">●</text>
+    <view class="hero-text">
+      <text class="title">{{title}}</text>
+      <text class="status">{{statusText}}</text>
+    </view>
+  </view>
+
+  <view class="info card">
+    <view wx:for="{{rows}}" wx:key="k" class="line">
+      <text class="k">{{item.k}}</text>
+      <text class="v">{{item.v}}</text>
+    </view>
+    <view wx:if="{{!rows.length}}" class="no-data">暂无更多信息</view>
+  </view>
+
+  <text class="note">数据来自广播式远程识别（ASTM F3411 / GB 42590），仅作接收与展示。</text>
+</view>
