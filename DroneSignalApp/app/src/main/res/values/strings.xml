@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">无人机信号接收</string>
+    <string name="start">一键启动</string>
+    <string name="stop">停止接收</string>
+    <string name="status_idle">待机中</string>
+    <string name="status_running">正在接收无人机信号…</string>
+    <string name="section_telemetry">MAVLink 遥测</string>
+    <string name="section_wifi">WiFi 无人机网络</string>
+    <string name="section_ble">蓝牙 BLE 设备</string>
+    <string name="section_log">事件日志</string>
+    <string name="channel_name">无人机信号接收</string>
+    <string name="notif_title">正在接收无人机信号</string>
+    <string name="notif_text">一键运行中，点击返回应用</string>
+    <string name="need_permissions">需要位置 / 附近设备权限才能扫描信号，请在设置中授予</string>
+</resources>
